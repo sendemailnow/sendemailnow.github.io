@@ -5,29 +5,10 @@
 <title>Send Mail</title>
 
 <script type="text/javascript">
-	var nodemailer = require("nodemailer");
 
-var smtpTransport = nodemailer.createTransport("SMTP",{
-host: "mail.smtp2go.com",
-port: 2525, // 8025, 587 and 25 can also be used.
-auth: {
-user: "aqua-aerobic.com",
-pass: "KwyGkhBtOn3YaoS1"
-}
-});
 	function sendEmail() {
-	smtpTransport.sendMail({
-from: "Aqua-Aerobic Visitor System",
-to: "Ted Baxter",
-subject: "Your guest, Ted Baxter has arrived! Please make your way up front",
-text: "Your guest, Ted Baxter has arrived! Please make your way up front"
-}, function(error, response){
-if(error){
-	alert(error)
-}else{
-alert("Message sent: " + response.message);
-}
-});
+var sender = require('./sender.js')()
+sender.send('Chuck Konkol', 'ckonkol@gmail.com')
 	}
 	
 	
