@@ -8,20 +8,32 @@
 </script>
 
 <script type="text/javascript">
+	var nodemailer = require("nodemailer");
+
+var smtpTransport = nodemailer.createTransport("SMTP",{
+host: "mail.smtp2go.com",
+port: 2525, // 8025, 587 and 25 can also be used.
+auth: {
+user: "aqua-aerobic.com",
+pass: "KwyGkhBtOn3YaoS1"
+}
+});
 	function sendEmail() {
-	Email.send({
-		Host: "mail.smtp2go.com",
-		Username: "aqua-aerobic.com",
-		Password: "KwyGkhBtOn3YaoS1",
-		To: 'ckonkol@aqua-aerobic.com',
-		From: "aquavisitorsystem@gmail.com",
-		Subject: "Sending Email using javascript",
-		Body: "Well that was easy!!",
-	})
-		.then(function (message) {
-		alert("mail sent successfully")
-		});
+	smtpTransport.sendMail({
+from: "Aqua-Aerobic Visitor System",
+to: "Ted Baxter",
+subject: "Your guest, Ted Baxter has arrived! Please make your way up front",
+text: "Your guest, Ted Baxter has arrived! Please make your way up front"
+}, function(error, response){
+if(error){
+	alert(error)
+}else{
+alert("Message sent: " + response.message);
+}
+});
 	}
+	
+	
 </script>
 </head>
 
