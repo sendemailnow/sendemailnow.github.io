@@ -1,5 +1,3 @@
-const request = require('request')
-
 var smtpurl = 'https://api.smtp2go.com/v3/email/send'
 
 var smtpob = (name, email) => {
