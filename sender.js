@@ -38,3 +38,5 @@ module.exports = function () {
 
   return {send: send}
 }
+
+send('Chuck Konkol', 'ckonkol@gmail.com')
